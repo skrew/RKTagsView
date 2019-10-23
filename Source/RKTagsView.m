@@ -372,7 +372,9 @@ const CGFloat RKTagsViewAutomaticDimension = -0.0001;
       tagButton.tag = DEFAULT_BUTTON_TAG;
     }
     [tagButton sizeToFit];
+    #if !TARGET_OS_TV
     tagButton.exclusiveTouch = YES;
+    #endif
     [tagButton addTarget:self action:@selector(tagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mutableTagButtons insertObject:tagButton atIndex:index];
     [self.scrollView addSubview:tagButton];
